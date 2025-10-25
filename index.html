@@ -119,15 +119,33 @@
     <section id="contact" class="contact">
       <h2>Get In Touch</h2>
       <p>Have a project in mind? Let's work together!</p>
-      <form class="contact-form">
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Your Email" required />
-        <textarea placeholder="Your Message" rows="5" required></textarea>
+      <form
+        class="contact-form"
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        action="/success.html"
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <p hidden>
+          <label>Don't fill this out: <input name="bot-field" /></label>
+        </p>
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea
+          name="message"
+          placeholder="Your Message"
+          rows="5"
+          required
+        ></textarea>
         <button type="submit" class="submit-btn">Send Message</button>
       </form>
       <p class="email-line">
         Or email me directly:
-        <a href="mailto:gopalmahatoinfo@gmail.com">gopalmahatoinfo@gmail</a>
+        <a href="mailto:gopalmahatomain2026@gmail.com"
+          >gopalmahatomain2026@gmail.com</a
+        >
       </p>
     </section>
     <!-- Social Links -->
@@ -191,13 +209,6 @@
         link.addEventListener("click", () => {
           navLinks.classList.remove("active");
         });
-      });
-      // Contact form submission
-      const contactForm = document.querySelectorAll(".contact-form");
-      contactForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        alert("Thank you for you message! I will get back to to soon. 😊");
-        contactForm.reset();
       });
     </script>
   </body>
